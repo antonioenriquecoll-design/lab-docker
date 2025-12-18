@@ -1,0 +1,12 @@
+# Usamos la imagen base de Python 3.11-slim [cite: 156, 194]
+FROM python:3.11-slim
+
+# Instalamos las dependencias necesarias [cite: 169, 171]
+RUN pip install --no-cache-dir jupyter numpy numba
+
+# Creamos el directorio /app y copiamos el notebook [cite: 164, 195]
+WORKDIR /app
+COPY reduc-operation-array-par-alumno05.ipynb /app/
+
+# Comando por defecto para ejecutar el notebook con ipython [cite: 196, 197]
+CMD ["ipython", "/app/reduc-operation-array-par-alumno05.ipynb", "100000"]
